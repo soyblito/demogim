@@ -12,7 +12,7 @@ import Contact from './containers/Contact';
 export default function App() {
   return (
     <Router>
-      <div>
+      <div class="body-inner">
       <Navigation /> 
         <Switch>          
           <Route path="/contacto">
