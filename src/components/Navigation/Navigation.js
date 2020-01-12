@@ -24,8 +24,8 @@ const Navigation = () => {
 
                     <div id="logo">
                         <a href="index.html">
-                            <span class="logo-default">POLO</span>
-                            <span class="logo-dark">POLO</span>
+                            <span class="logo-default">DEMOGIM</span>
+                            <span class="logo-dark">DEMOGIM</span>
                         </a>
                     </div>
 
@@ -35,7 +35,7 @@ const Navigation = () => {
                             <span class="text-muted">Start typing & press "Enter" or "ESC" to close</span>
                         </form>
                     </div>
-
+{/*
                     <div class="header-extras">
                         <ul>
                             <li>
@@ -53,7 +53,7 @@ const Navigation = () => {
                             </li>
                         </ul>
                     </div>
-                    
+*/}                    
                     <div id="mainMenu-trigger">
                         <a href="#1" class="lines-button x"><span class="lines"></span></a>
                     </div>
@@ -63,6 +63,7 @@ const Navigation = () => {
                             <nav>
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
+                                    {/*
                                     <li class="dropdown"><a href="#1">Layout</a>
                                         <ul class="dropdown-menu">
                                             <li ><a href="#1">Topbar 1</a></li>
@@ -70,7 +71,8 @@ const Navigation = () => {
                                             <li ><a href="#1">Topbar 3</a></li>                                            
                                         </ul>
                                     </li>
-                                    <li><a href="index.html">Pricing</a></li>
+                                    <li><a href="index.html">Precios</a></li>
+                                    */}
                                     <li><a href="index.html">Contacto</a></li>                                    
                                 </ul>
                             </nav>
