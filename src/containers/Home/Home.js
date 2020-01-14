@@ -4,7 +4,6 @@ import '../../commons/css/style.css';
 
 const Home = () => {
 
-
 const contents = [
     { section: "Porque Elegirnos", excerpt: "algun texto sobre porque elegirnos..." },
     { section: "Queres tener venir a una clase de prueba ? " }
@@ -16,8 +15,51 @@ const why = [
     { title: "Powerful template", text: "Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus." } 
 ]
 
+const callToAction = { title: "Join by April 27 to Programs and Services", subtitle: "This is a simple hero unit, a simple call-to-action-style component for calling extra attention to featured content.", buttonText: "Call us now!", buttonLink: "/" }
+
+const pricing = {
+    title: "Tabla de Precios",
+    subtitle: "Elegi tu Plan",
+    excerpt: "Mira nuestros planes y elegi el que mas se adapte a vos!",
+    prices: [
+        {
+            title: "Plan 1",
+            subtitle: "medio pelo",
+            price: "800",
+            items:[
+                {title:"pileta"},
+                {title:"musculacion"}
+            ]
+        },
+        {
+            title: "Plan 2",
+            subtitle: "buen plan",
+            price: "1200",
+            items:[
+                {title:"pileta"},
+                {title:"musculacion"},
+                {title:"masajes"}
+            ]
+        },
+        {
+            title: "Plan 3",
+            subtitle: "super plan",
+            price: "2200",
+            items:[
+                {title:"pileta"},
+                {title:"musculacion"},
+                {title:"masajes"},
+                {title:"cross-fit"}
+            ]
+        }
+    ]
+}
+
     return (<>
         
+        <section className="headerImage">
+            <img src={require("../../commons/img/borrarimg1.jpg")} alt="imagen header" />
+        </section>
         <section>
             <div class="container">
                 <div class="heading-text heading-section text-center">
@@ -48,10 +90,10 @@ const why = [
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10">
-                        <h3 class="text-light">Join by April 27 and <span>Win $200</span> in Programs and Services</h3>
-                        <p class="text-light">This is a simple hero unit, a simple call-to-action-style component for calling extra attention to featured content.</p>
+                        <h3 class="text-light">{callToAction.title}</h3>
+                        <p class="text-light">{callToAction.subtitle}</p>
                     </div>
-                    <div class="col-lg-2"> <a class="btn btn-light btn-outline">Call us now!</a> </div>
+                    <div class="col-lg-2"> <a class="btn btn-light btn-outline" href={callToAction.buttonLink}>{callToAction.buttonText}</a> </div>
                 </div>
             </div>
         </div>
@@ -61,87 +103,46 @@ const why = [
             <div class="container">
                 <div class="col-lg-8 m-b-100  center">
                     <div class="heading-text heading-section text-center">
-                        <h4>See by yourself</h4>
-                        <h2>The most affordable pricing</h2>
-                        <p>Nulla varius consequat magna, id molestie ipsum volutpat quis. A true story, that never been told!. Fusce id mi diam, non ornare.</p>
+                        <h4>{pricing.title}</h4>
+                        <h2>{pricing.subtitle}</h2>
+                        <p>{pricing.excerpt}</p>
                     </div>
                 </div>
                 <hr class="space" />
                 <div class="row pricing-table">
-                    <div class="col-lg-4 col-md-12 col-12">
-                        <div class="plan">
-                            <div class="plan-header">
-                                <h4>Ultimate Plan</h4>
-                                <p class="text-muted">Plan short description</p>
-                                <div class="plan-price"><sup>$</sup>80<span>/mo</span> </div>
-                            </div>
-                            <div class="plan-list">
-                                <ul>
-                                    <li><i class="fas fa-globe-americas"></i>Unlimited Websites</li>
-                                    <li><i class="fa fa-thumbs-up"></i>Unlimited Storage</li>
-                                    <li><i class="fa fa-signal"></i>Unlimited Bandwidth</li>
-                                    <li><i class="fa fa-user"></i>1000 Email Addresses</li>
-                                    <li><i class="fa fa-star"></i>Free domain with annual plan</li>
-                                    <li><i class="fa fa-rocket"></i>4X Processing Power</li>
-                                    <li><i class="fa fa-server"></i>Premium DNS</li>
-                                </ul>
-                                <div class="plan-button">
-                                    <a href="#" class="btn btn-light">Buy Now</a>
+                    
+                    {
+                        pricing.prices.map( item =>  (
+                            <div class="col-lg-4 col-md-12 col-12">
+                                <div class="plan">
+                                    <div class="plan-header">
+                                        <h4>{item.title}</h4>
+                                        <p class="text-muted">{item.subtitle}</p>
+                                        <div class="plan-price"><sup>$</sup>{item.price}<span>/mes</span> </div>
+                                    </div>
+                                    <div class="plan-list">
+                                        <ul>
+                                        {
+                                            item.items.map( li => (
+                                                <li><i class="fas fa-globe-americas"></i>{li.title}</li>
+                                            ))
+                                        }
+                                        </ul>
+                                        <div class="plan-button">
+                                            <a href="#" class="btn btn-light">Buy Now</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 col-12">
-                        <div class="plan featured">
-                            <div class="plan-header">
-                                <h4>Deluxe Plan</h4>
-                                <p class="text-muted">Plan short description</p>
-                                <div class="plan-price"><sup>$</sup>20<span>/mo</span> </div>
-                            </div>
-                            <div class="plan-list">
-                                <ul>
-                                    <li><i class="fas fa-globe-americas"></i>Unlimited Websites</li>
-                                    <li><i class="fa fa-thumbs-up"></i>Unlimited Storage</li>
-                                    <li><i class="fa fa-signal"></i>Unlimited Bandwidth</li>
-                                    <li><i class="fa fa-user"></i>1000 Email Addresses</li>
-                                    <li><i class="fa fa-star"></i>Free domain with annual plan</li>
-                                    <li><i class="fa fa-rocket"></i>4X Processing Power</li>
-                                    <li><i class="fa fa-server"></i>Premium DNS</li>
-                                </ul>
-                                <div class="plan-button">
-                                    <a href="#" class="btn">Buy Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 col-12">
-                        <div class="plan">
-                            <div class="plan-header">
-                                <h4>Professional Plan</h4>
-                                <p class="text-muted">Plan short description</p>
-                                <div class="plan-price"><sup>$</sup>69<span>/mo</span> </div>
-                            </div>
-                            <div class="plan-list">
-                                <ul>
-                                    <li><i class="fas fa-globe-americas"></i>Unlimited Websites</li>
-                                    <li><i class="fa fa-thumbs-up"></i>Unlimited Storage</li>
-                                    <li><i class="fa fa-signal"></i>Unlimited Bandwidth</li>
-                                    <li><i class="fa fa-user"></i>1000 Email Addresses</li>
-                                    <li><i class="fa fa-star"></i>Free domain with annual plan</li>
-                                    <li><i class="fa fa-rocket"></i>4X Processing Power</li>
-                                    <li><i class="fa fa-server"></i>Premium DNS</li>
-                                </ul>
-                                <div class="plan-button">
-                                    <a href="#" class="btn btn-light">Buy Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        ))
+                    }
+                    
+                    
                 </div>
             </div>
         </section>
 
-
+{/**
         <section class="m-t-80 p-b-150">
             <div class="container">
                 <div class="row">
@@ -171,16 +172,16 @@ const why = [
                 </div>
             </div>
         </section>
-
+*/}
         <footer id="footer">
             <div class="footer-content">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="widget">
-                                <div class="widget-title">Polo HTML5 Template</div>
-                                <p class="mb-5">Built with love in Fort Worth, Texas, USA<br />
-                                    All rights reserved. Copyright © 2019. INSPIRO.</p>
+                                <div class="widget-title">DemoGim</div>
+                                <p class="mb-5">Built with love in Zona Oeste, Buenos Aires, Argentina<br />
+                                    All rights reserved. Copyright © 2019. BZL.</p>
                                 <a href="https://themeforest.net/item/polo-responsive-multipurpose-html5-template/13708923" class="btn btn-inverted">Purchase Now</a>
                             </div>
                         </div>
@@ -237,7 +238,7 @@ const why = [
             </div>
             <div class="copyright-content">
                 <div class="container">
-                    <div class="copyright-text text-center">&copy; 2019 POLO - Responsive Multi-Purpose HTML5 Template. All Rights Reserved.<a href="http://www.inspiro-media.com" rel="noopener noreferrer" target="_blank"> INSPIRO</a> </div>
+                    <div class="copyright-text text-center">&copy; 2019 BZL - All Rights Reserved.<a href="#1" rel="noopener noreferrer" target="_blank"> BZL </a> </div>
                 </div>
             </div>
         </footer>
